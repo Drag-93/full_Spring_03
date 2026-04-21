@@ -42,7 +42,7 @@ public class MemverServiceImpl implements MemberService {
         memberRepository.save(MemberEntity.toInsertMemberEntity(memberDto));
     }
 
-    //회원수정 -> 미완
+    //회원수정 ->
     @Override
     public void memberUpdate(MemberDto memberDto) {
         Optional<MemberEntity> optionalMemberEntity=memberRepository.findById(memberDto.getId());
