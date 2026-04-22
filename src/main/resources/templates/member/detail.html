@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/memberLayout}"
+>
+
+<th:block layout:fragment="title">
+
+</th:block>
+<th:block layout:fragment="javascript">
+  <!-- index.html만 적용되는 javascript 설정 -->
+</th:block>
+<th:block  layout:fragment="css">
+  <!-- index.html만 적용되는  css 설정 -->
+      <link rel="stylesheet" th:href="@{/css/member/detail.css}">
+</th:block>
+<th:block layout:fragment="container">
+<div class="detail">
+  <div class="detail-con">
+    <h1 th:text="${member.userName}"></h1>
+    <table>
+      <tr>
+        <th>아이디</th>
+        <th>userEmail</th>
+        <th>userPw</th>
+        <th>userName</th>
+        <th>phone</th>
+        <th>addr</th>
+        <th>role</th>
+        <th>createTime</th>
+        <th>updateTime</th>
+        <th>삭제</th>
+        <th>수정</th>
+      </tr>
+      <tr>
+        <td th:text="${member.id}"></td>
+        <td th:text="${member.userEmail}"></td>
+        <td th:text="${member.userPw}"></td>
+        <td th:text="${member.userName}"></td>
+        <td th:text="${member.phone}"></td>
+        <td th:text="${member.addr}"></td>
+        <td th:text="${member.role}"></td>
+        <td th:text="${member.createTime}"></td>
+        <td th:text="${member.updateTime}"></td>
+        <td><a th:href="@{/member/delete/{id}(id=${member.id})}">삭제하기</a></td> <!--요즘엔 이걸 많이 사용-->
+        <td><a th:href="@{/member/update/{id}(id=${member.id})}">수정하기</a></td> <!--요즘엔 이걸 많이 사용-->
+      </tr>
+    </table>
+  </div>
+</div>
+</th:block>
+</html>

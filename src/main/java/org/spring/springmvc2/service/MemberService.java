@@ -17,4 +17,6 @@ public interface MemberService {
     List<MemberDto> memberList();
 
     MemberDto memberDetail(Long id);
+
+    MemberDto memberLogin(MemberDto memberDto);
 }

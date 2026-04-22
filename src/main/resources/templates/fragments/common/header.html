@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="header" th:fragment="member_headerFragment">
+<link rel="stylesheet" th:href="@{/css/header.css}">
+    <div class="nav">
+        <a class="logo"  th:href="@{/}"><img src="/images/testLogo.png" alt="img"></a>
+        <div class="gnb">
+            <ul>
+                <li><a th:href="@{/}">HOME</a></li>
+                <li><a th:href="@{/member/memberList}">회원목록</a></li>
+                <li><a th:href="@{/member/join}">회원가입</a></li>
+                <li><a th:href="@{/member/login}">로그인</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

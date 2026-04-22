@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!--/경로/// head.html :: fragment이름     -->
+<head th:replace="/fragments/common/head :: headFragment"></head>
+<body>
+<!-- header -->
+<div class="header" th:replace="/fragments/common/header :: member_headerFragment"></div>
+
+<!-- 각페이지 마다 차이가 있는 컨텐츠를 배치 하는 레이아웃-->
+<th:block layout:fragment="container"></th:block>
+
+<!-- footer -->
+<div class="footer" th:replace="/fragments/common/footer :: member_footerFragment">  </div>
+
+</body>
+
+</html>

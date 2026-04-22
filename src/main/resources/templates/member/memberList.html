@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>memberList</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/memberLayout}"
+>
+
+<th:block layout:fragment="title">
+    <title>회원목록페이지</title>
+</th:block>
+<th:block layout:fragment="javascript">
+    <!-- index.html만 적용되는 javascript 설정 -->
+</th:block>
+<th:block  layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/member/memberList.css}">
+</th:block>
+<th:block layout:fragment="container">
     <div class="memberList">
         <div class="memberList-con">
-            <h1>회원목록</h1>
             <table>
                 <tr>
                     <th>아이디</th>
@@ -19,6 +26,7 @@
                     <th>role</th>
                     <th>createTime</th>
                     <th>updateTime</th>
+                    <th>보기</th>
                 </tr>
                 <tr th:each="member:${memberList}">
                     <td th:text="${member.id}"></td>
@@ -30,9 +38,12 @@
                     <td th:text="${member.role}"></td>
                     <td th:text="${member.createTime}"></td>
                     <td th:text="${member.updateTime}"></td>
+                    <td><a th:href="@{/member/detail/{id}(id=${member.id})}">상세보기</a></td> <!--요즘엔 이걸 많이 사용-->
+<!--                    <td><a th:href="@{/member/detail(id=${member.id})}">상세보기</a></td>-->
+
                 </tr>
             </table>
         </div>
     </div>
-</body>
+</th:block>
 </html>

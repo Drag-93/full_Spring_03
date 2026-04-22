@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f6f8;
+    color: #333;
+}
+
+/* 전체 영역 */
+.login {
+    width: 100%;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* 카드 박스 */
+.login-con {
+    width: 100%;
+    max-width: 420px;
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* 리스트 */
+.login-con ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 각 항목 */
+.login-con ul li {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* 라벨 */
+.login-con label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* 입력창 */
+.login-con input[type="text"],
+.login-con input[type="password"] {
+    height: 42px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+/* focus */
+.login-con input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* 버튼 영역 */
+.login-con ul li:last-child {
+    display: flex;
+    gap: 10px;
+}
+
+/* 버튼 공통 */
+.login-con input[type="submit"],
+.login-con input[type="reset"] {
+    flex: 1;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* 로그인 버튼 */
+.login-con input[type="submit"] {
+    background-color: #2563eb;
+    color: #fff;
+}
+
+.login-con input[type="submit"]:hover {
+    background-color: #1d4ed8;
+}
+
+/* 초기화 버튼 */
+.login-con input[type="reset"] {
+    background-color: #e5e7eb;
+    color: #333;
+}
+
+.login-con input[type="reset"]:hover {
+    background-color: #d1d5db;
+}
+
+/* 회원가입 링크 */
+.login-con > a {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #2563eb;
+    transition: 0.2s;
+}
+
+.login-con > a:hover {
+    text-decoration: underline;
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+    .login-con {
+        padding: 25px 20px;
+    }
+}

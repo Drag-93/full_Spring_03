@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/memberLayout}"
+>
+
+<th:block layout:fragment="title">
+    <title>로그인페이지</title>
+</th:block>
+<th:block layout:fragment="javascript">
+    <!-- index.html만 적용되는 javascript 설정 -->
+</th:block>
+<th:block  layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/member/login.css}">
+</th:block>
+<th:block layout:fragment="container">
+<div class="login">
+    <div class="login-con">
+         <form th:action="@{/member/login}" method="post">
+            <ul>
+                <li>
+                    <label for="userEmail">이메일: </label>
+                    <input type="text" name="userEmail" id="userEmail">
+                </li>
+                <li>
+                    <label for="userPw">비밀번호: </label>
+                    <input type="password" name="userPw" id="userPw">
+                </li>
+                <li>
+                    <input type="submit" value="로그인">
+                    <input type="reset" value="초기화">
+                </li>
+            </ul>
+        </form>
+        <a th:href="@{/member/join}">회원가입</a>
+    </div>
+</div>
+</th:block>
+</html>
+

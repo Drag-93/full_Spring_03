@@ -82,4 +82,23 @@ public class MemverServiceImpl implements MemberService {
         }
         return MemberDto.toMemberDto(optionalMemberEntity.get());
     }
+
+    @Override
+    public MemberDto memberLogin(MemberDto memberDto) {
+        Optional<MemberEntity> optionalMemberEntity=memberRepository.findByUserEmail(memberDto.getUserEmail());
+        System.out.println(memberDto);
+        MemberDto loginDto=MemberDto.toMemberDto(optionalMemberEntity.get());
+        System.out.println(loginDto);
+        if(!optionalMemberEntity.isPresent()){
+            throw new IllegalArgumentException("이메일이 일치하지 않습니다");
+        }
+
+
+        if(!loginDto.getUserPw().equals(memberDto.getUserPw())){
+            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다");
+        }
+        System.out.println("로그인 성공");
+        return loginDto;
+    }
+
 }

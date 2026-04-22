@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f6f8;
+    color: #333;
+}
+
+/* 전체 영역 */
+.memberList {
+    width: 100%;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* 컨테이너 */
+.memberList-con {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* 테이블 */
+.memberList-con table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* 헤더 */
+.memberList-con table th {
+    background-color: #1f2937;
+    color: #ffffff;
+    padding: 14px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* 데이터 */
+.memberList-con table td {
+    padding: 12px 10px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 13px;
+}
+
+/* 줄 hover */
+.memberList-con table tr:hover td {
+    background-color: #f9fafb;
+}
+
+/* 상세보기 버튼 */
+.memberList-con table td a {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: #2563eb;
+    color: #fff;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.memberList-con table td a:hover {
+    background-color: #1d4ed8;
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+    .memberList-con {
+        padding: 15px;
+    }
+
+    .memberList-con table th,
+    .memberList-con table td {
+        font-size: 11px;
+        padding: 8px 5px;
+    }
+}
