@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.spring.springmvc2.constraint.Role;
+import org.spring.springmvc2.common.BasicTime;
+import org.spring.springmvc2.common.Role;
 import org.spring.springmvc2.dto.MemberDto;
 
 import java.time.LocalDateTime;
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @Table(name="member_test_tb2")
-public class MemberEntity {
+public class MemberEntity extends BasicTime {
 
     @Id // pk
     @GeneratedValue(strategy = GenerationType.IDENTITY)//auto_increment
@@ -44,14 +45,7 @@ public class MemberEntity {
     @Enumerated(EnumType.STRING) //Enum 타입이 문자열임
     private Role role;
 
-    //날짜시간 필수
-    @CreationTimestamp // 처음 생성시 현재시간 저장
-    @Column(updatable = false) // 업데이트시 저장 X -> 처음 생성시 한번만 저장됨
-    private LocalDateTime createTime;
 
-    @UpdateTimestamp // 수정 시 마다 현재시간 저장
-    @Column(insertable = false) // 처음 생성 시 저장X -> 업데이트 시에만 저장됨
-    private LocalDateTime updateTime;
 
 
     //DTO -> Entity
@@ -64,7 +58,6 @@ public class MemberEntity {
         memberEntity.setPhone(memberDto.getPhone());
         memberEntity.setAddr(memberDto.getAddr());
         memberEntity.setRole(Role.MEMBER);
-        memberEntity.setCreateTime(memberDto.getCreateTime());
 
         return memberEntity;
     }
@@ -78,9 +71,7 @@ public class MemberEntity {
         memberEntity.setPhone(memberDto.getPhone());
         memberEntity.setAddr(memberDto.getAddr());
         memberEntity.setRole(memberDto.getRole());
-        //수정 시간은 자동으로 설정
-        memberEntity.setCreateTime(memberDto.getCreateTime());
-        memberEntity.setUpdateTime(memberDto.getUpdateTime());
+
         return memberEntity;
     }
 

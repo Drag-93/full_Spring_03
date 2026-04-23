@@ -16,21 +16,22 @@
 <div class="join">
     <div class="join-con">
         <h1 class="title">Sign Up</h1>
-        <form th:action="@{/member/join}" method="post">
+        <form th:action="@{/member/join}" method="post" th:object="${memberDto}">
             <ul>
                 <li>
                     <label for="userEmail">이메일</label>
-                    <input type="text" name="userEmail" id="userEmail" placeholder="이메일입력">
+                    <input type="text" th:field="*{userEmail}" id="userEmail" placeholder="이메일입력">
+                    <p th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}" class="error"></p>
                 </li>
                 <li>
                     <label for="userPw">비밀번호</label>
-                    <input type="password" name="userPw" id="userPw" placeholder="비밀번호입력">
-
+                    <input type="password" th:field="*{userPw}" id="userPw" placeholder="비밀번호입력">
+                    <p th:if="${#fields.hasErrors('userPw')}" th:errors="*{userPw}" class="error"></p>
                 </li>
                 <li>
                     <label for="userName">이름</label>
-                    <input type="text" name="userName" id="userName" placeholder="이름입력">
-
+                    <input type="text" th:field="*{userName}" id="userName" placeholder="이름입력">
+                    <p th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userName}" class="error"></p>
                 </li>
                 <li>
                     <label for="phone">전화번호</label>

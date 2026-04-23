@@ -1,12 +1,15 @@
 package org.spring.springmvc2.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.spring.springmvc2.dto.MemberDto;
 import org.spring.springmvc2.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Member;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -25,17 +28,22 @@ public class MemberController {
 
     //회원가입 페이지 이동
     @GetMapping("/join")
-    public String join(){
+    public String join(MemberDto memberDto){
         return "member/join";
     }
-
+    //회원가입 실행-> 유효성 검사
     @PostMapping("/join")
-    public String joinOk(@ModelAttribute MemberDto memberDto){
+    public String joinOk(@Valid MemberDto memberDto, BindingResult bindingResult){
+        //에러가 나면
+        if(bindingResult.hasErrors()){
+            return "/member/join";
+        }
+
         memberService.memberInsert(memberDto);
 //        System.out.println("로그인페이지로 이동");
 //        return "redirect:/member/login";
 
-        return "redirect:/member/memberList";
+        return "redirect:/member/login";
     }
     @GetMapping("/login")
     public String login(){

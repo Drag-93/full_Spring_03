@@ -1,10 +1,9 @@
 package org.spring.springmvc2.dto;
 
-import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.spring.springmvc2.constraint.Role;
+import org.spring.springmvc2.common.Role;
 import org.spring.springmvc2.entity.MemberEntity;
 
 import java.time.LocalDateTime;
@@ -18,11 +17,14 @@ import java.time.LocalDateTime;
 public class MemberDto {
 
     private Long id;
-
+    @NotBlank(message = "이메일을 입력해주세요")
+    @Size(min=3)
     private String userEmail;
-
+    @NotBlank(message = "비밀번호를 입력해주세요")
+    @Size(min=3)
     private String userPw;
-
+    @NotBlank(message = "이름을 입력해주세요")
+    @Size(min=3, max = 20)
     private String userName;
 
     private String phone;
